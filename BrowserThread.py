@@ -71,6 +71,6 @@ class BrowserThread(QThread):
         opt.add_experimental_option("excludeSwitches", ["enable-logging"])
         opt.add_argument('--disable-dev-shm-usage')
 
-        ser = Service(ChromeDriverManager().install())
+        ser = MyService(ChromeDriverManager().install())
         browser = webdriver.Chrome(service=ser, options=opt)
         self.callback.emit(browser)
