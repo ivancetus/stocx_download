@@ -1,0 +1,9 @@
+selenium
+webdriver-manager
+packaging
+lxml
+BeautifulSoup4
+pyqt5
+fake-useragent
+pillow
+wxPython
