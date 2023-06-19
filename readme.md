@@ -24,7 +24,7 @@
 ```commandline
 cd C:\myproject
 
-pyinstaller --hidden-import=queue -w -F MainWindow.py
+pyinstaller --hidden-import=queue -F --icon=img_handling/favicon.ico stocx.py
 ```
 -w => not showing the debug window, might cause the program unable to initiate webdriver manager
 
