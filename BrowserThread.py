@@ -4,7 +4,7 @@ import os
 import subprocess
 from platform import system
 from PyQt5.QtCore import QThread, pyqtSignal
-# from fake_useragent import UserAgent
+from fake_useragent import UserAgent
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -67,8 +67,8 @@ class BrowserThread(QThread):
         opt.add_argument('--disable-gpu')
         opt.add_argument('--window-size=1280,720')
         # random header info
-        # user_agent = UserAgent()
-        # opt.add_argument('--user-agent=%s' % user_agent.random)
+        user_agent = UserAgent()
+        opt.add_argument('--user-agent=%s' % user_agent.random)
         opt.add_experimental_option("excludeSwitches", ["enable-logging"])
         opt.add_argument('--disable-dev-shm-usage')
 

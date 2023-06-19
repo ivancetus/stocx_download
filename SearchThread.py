@@ -54,6 +54,10 @@ class SearchThread(QThread):
                 next_page_link = f'https://www.sto.cx/{next_page.get("href")}'
                 self.browser.get(next_page_link)
                 time.sleep(random.randint(5, 8) + random.random())
+            except AttributeError:
+                #  catch if soup returns None
+                self.search_result.emit('無法讀取網頁')
+                return
             except Exception as e:
                 self.search_result.emit('錯誤發生', e)
                 retry += 1
