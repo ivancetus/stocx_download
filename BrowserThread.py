@@ -67,7 +67,9 @@ class BrowserThread(QThread):
         opt.add_argument('--disable-gpu')
         opt.add_argument('--window-size=1280,720')
         # random header info
-        user_agent = UserAgent()
+        # pyinstaller cannot detect the files which are used by Fake_UserAgent, which are cache files, so one way to
+        # fix it is to disable those saved cache files
+        user_agent = UserAgent(use_external_data=True)
         opt.add_argument('--user-agent=%s' % user_agent.random)
         opt.add_experimental_option("excludeSwitches", ["enable-logging"])
         opt.add_argument('--disable-dev-shm-usage')
